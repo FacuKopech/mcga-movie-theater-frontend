@@ -15,6 +15,12 @@
     width: 11%;
     justify-content: space-around;
   }
+
+  .title{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
   
   .navbar-logo{
     background-image: url(../assets/backgrounds/clapboard.png);
@@ -46,16 +52,16 @@
     width: 46px;
   }
 
-  .btnLogin:hover, .btnLogout:hover{
-    background-color: #333;
-  }
-
   .svgLogin, .svgLogout{
     color: white;
     width: 30px;
     fill: none;
     stroke-width: 1.5;
     stroke: currentColor;
+  }
+
+  .svgLogin:hover, .svgLogout:hover{
+    color: #333;
   }
 
   .pathLogout, .pathLogin{
@@ -68,5 +74,11 @@
     flex-direction: row;
     width: 108%;
     justify-content: space-around;
+  }
+
+  .div_welcome_text{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
   }
   

@@ -10,5 +10,25 @@ body {
   min-width: 320px;
   min-height: 100vh;
   width: 100%;
+  overflow-y: auto;
+}
+::-webkit-scrollbar {
+  width: 12px; 
+  height: 12px; 
 }
 
+/* Background of the scrollbar track */
+::-webkit-scrollbar-track {
+  background: rgba(82, 82, 82, 0.621); 
+}
+
+/* Background of the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #21425d; 
+  border-radius: 10px;
+}
+
+/* Style for when the scrollbar thumb is being hovered */
+::-webkit-scrollbar-thumb:hover {
+  background: #21425d; 
+}

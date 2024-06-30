@@ -1,0 +1,69 @@
+ .popup-content {
+     display: flex;
+     width: 48%;
+     height: 400px;
+ }
+
+ .movie-details-container {
+     display: flex;
+     flex-direction: row;
+     width: 100%;
+     justify-content: space-around;
+     height: 252px;
+ }
+
+ .div-movie-image img {
+     width: 100%;
+     height: 100%;
+ }
+
+ .div-movie-details {
+     width: 55%;
+ }
+
+ .div-movie-details h3 {
+     display: flex;
+     justify-content: flex-end;
+     font-family: "Coustard", serif;
+     margin: 0;
+ }
+
+ .div-detailed-info {
+     display: flex;
+     flex-direction: row;
+     justify-content: flex-end;
+ }
+
+ .p-stars {
+     margin: 0;
+     margin-right: 10px;
+ }
+
+ .p-duration{
+    margin: 0;
+    align-self: center;
+    font-weight: bold;
+    font-size: larger;
+ }
+
+ .p-genre{
+    margin: 0;
+    display: flex;
+    justify-content: end;
+    font-weight: bold;
+    font-size: x-large;
+ }
+
+ .p-description{
+    font-family: "Coustard", serif;
+    font-size: large;
+    font-weight: bold;
+ }
+
+ .popup-content h2 {
+     margin-top: 0;
+ }
+
+ .popup-content button {
+     margin-top: 20px;
+ }

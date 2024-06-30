@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import '../styles/login.css'
+import { useLoading } from '../context/loadingContext';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const [loginMessageError, setLoginMessageError] = useState('');
+  const { setLoading } = useLoading(); 
 
   const handleLogin = async (e: any) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch('/api/login', {
         method: 'POST',
@@ -21,6 +25,7 @@ function Login() {
       });
 
       if (!response.ok) {
+        response.status == 404 ? setLoginMessageError('User not found. Please try again') : setLoginMessageError('Failed to Login. Please try again');
         throw new Error('Failed to login');
       }
 
@@ -32,6 +37,8 @@ function Login() {
       console.log('Login successful:', decodedToken);
     } catch (error) {
       console.error('Error during login:', error);
+    }finally {
+      setLoading(false);
     }
   };
 
@@ -39,13 +46,14 @@ function Login() {
     <div className='loginContainer'>
       <div id="form-ui">
         <form action="" method="post" id="form" onSubmit={handleLogin}>
-        <div className="div_popcorn_icon"></div>
+          <div className="div_popcorn_icon"></div>
           <div id="form-body">
             <div id="welcome-lines">
               <div id="welcome-line-1">Movie Theater</div>
               <div id="welcome-line-2">Welcome Back!</div>
+              <div className="message_error">{loginMessageError}</div>
             </div>
-            <div id="input-area">
+            <div className={loginMessageError.length > 0 ? "input-area-modified" : "input-area"}>
               <div className="form-inp">
                 <input placeholder="Email Address" type="text" value={email}
                   onChange={(e) => setEmail(e.target.value)}></input>

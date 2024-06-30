@@ -29,3 +29,42 @@ html {
     width: fit-content;
     right: 312px;
 }
+
+.div_add_button{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.div_add_button_no_display{
+    display: none;
+}
+
+.div-movies-carousels-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movie-carousel{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.genre-title{
+    font-family: "Coustard", serif;
+    color: white;
+    max-width: 95%;
+    width: 95%;
+}
+
+.line-separator{
+    border: 1px solid #313131;
+    width: 96%;
+    border-style: dashed;
+}

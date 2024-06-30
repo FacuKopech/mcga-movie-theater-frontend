@@ -26,6 +26,8 @@
     background-size: cover;
     width: 59px;
     height: 63px;
+    position: fixed;
+    top: 406px;
   }
 
   #welcome-lines {
@@ -46,9 +48,22 @@
     font-size: 18px;
     margin-top: 17px;
   }
+
+  .message_error{
+    margin-top: 15px;
+    margin-bottom: -23px;
+    color: #be3131;
+    font-size: small;
+    font-weight: bold;
+    font-family: "Coustard", serif;
+  }
   
-  #input-area {
+  .input-area {
     margin-top: 40px;
+  }
+
+  .input-area-modified {
+    margin-top: 32px;
   }
   
   .form-inp {

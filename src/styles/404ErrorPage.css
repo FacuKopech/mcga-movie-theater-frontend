@@ -1,0 +1,46 @@
+.page_404 {
+    background: #fff;
+    font-family: "Coustard", serif;
+    width: 1000px;
+}
+
+.page_404 img {
+    width: 100%;
+}
+
+.four_zero_four_bg {
+    display: flex;
+    justify-content: center;
+    background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 688px;
+    background-position: center;
+    background-position: center;
+    background-size: inherit;
+    background-repeat: no-repeat;
+}
+
+
+.four_zero_four_bg h1 {
+    font-size: 80px;
+}
+
+.four_zero_four_bg h3 {
+    font-size: 80px;
+}
+
+.link_404 {
+    color: #fff;
+    padding: 10px 20px;
+    background: #39ac31;
+    margin: 20px 0;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.contant_box_404 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: -184px;
+}

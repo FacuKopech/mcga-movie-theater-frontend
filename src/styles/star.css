@@ -1,0 +1,14 @@
+.stars {
+    display: flex;
+  }
+  
+  .stars svg {
+    fill: rgb(226, 226, 46);
+    stroke: none; 
+    border: none;
+  }
+  
+  .stars svg[fill="none"] {
+    fill: white;
+  }
+  

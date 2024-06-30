@@ -1,0 +1,37 @@
+.result-popup-overlay{
+    position: absolute;
+    z-index: 9999;
+    background-color: rgb(65, 65, 65);
+    width: 24%;
+    height: 235px;
+    border-radius: 20px;
+    border: 3px solid #369822;
+}
+
+.result-popup-content{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.div-result-message{
+    margin-top: 14px;
+    margin-bottom: 9px;
+}
+
+.div-result-message p{
+    color: white;
+    font-family: "Coustard", serif;
+}
+
+.div-result-icon{
+    margin-bottom: 12px;
+}
+
+.div-close-btn button{
+    border: none;
+    background-color: transparent;
+    font-size: larger;
+    cursor: pointer;
+}

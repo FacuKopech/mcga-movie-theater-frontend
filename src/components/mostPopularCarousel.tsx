@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/carousel.css';
+import '../interfaces/CarouselProps'
 
-interface CarouselProps {
-  images: { image: string; title: string }[];
-}
-
-const Carousel: React.FC<CarouselProps> = ({ images }) => {
+const MostPopularCarousel: React.FC<CarouselProps> = ({ images }) => {
   const [current, setCurrent] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
   let timeOut = null;
@@ -21,6 +18,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
   useEffect(() => {
     timeOut = autoPlay && setTimeout(() => slideRight(), 2500);
   });
+  
   return (
     <div className="carousel-container" onMouseEnter={() => setAutoPlay(false)} onMouseLeave={() => setAutoPlay(true)}>
       <div className="carousel_wrapper">
@@ -46,4 +44,4 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
   );
 };
 
-export default Carousel;
+export default MostPopularCarousel;

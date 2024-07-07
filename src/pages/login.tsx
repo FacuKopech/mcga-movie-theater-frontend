@@ -40,7 +40,6 @@ const Login = ({ closePopup }: { closePopup: () => void }) => {
       const { name } = decodedToken;
 
       navigate('/', { state: { name } });
-      console.log('Login successful:', decodedToken);
     } catch (error) {
       console.error('Error during login:', error);
     } finally {

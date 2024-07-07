@@ -34,7 +34,6 @@ const ConfirmDeletePopup: React.FC<ConfirmDeletePopupProps> = ({ movieId, closeP
         setLoading(false);
         handleClosePopup();
         onResult('Movie deleted successfully');
-        console.log('Movie deleted');
       }
     } catch (error) {
       setLoading(false);

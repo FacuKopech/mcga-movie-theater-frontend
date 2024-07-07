@@ -60,7 +60,6 @@ const AddFilmPopup = ({ closePopup }: { closePopup: () => void }) => {
         setLoading(false);
         setResultMessage('Movie uploaded successfully');
         setShowResultPopup(true);
-        console.log('Movie uploaded');
       }
     } catch (error) {
       setLoading(false);

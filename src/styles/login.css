@@ -50,9 +50,18 @@
   }
 
   .message_error{
-    margin-top: 15px;
+    margin-top: 30px;
     margin-bottom: -23px;
     color: #be3131;
+    font-size: small;
+    font-weight: bold;
+    font-family: "Coustard", serif;
+  }
+
+  .message_success{
+    margin-top: 34px;
+    margin-bottom: -23px;
+    color: rgb(37, 117, 37);
     font-size: small;
     font-weight: bold;
     font-family: "Coustard", serif;
@@ -155,14 +164,14 @@
   }
   
 
-  .div_home_button{
+  .div_action_btns{
     display: flex;
     justify-content: center;
     margin-top: 15px;
     margin-bottom: -24px;
   }
 
-  .btnHome{
+  .actionBtn{
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -171,11 +180,11 @@
     width: 46px;
   }
 
-  .btnHome:hover{
+  .actionBtn:hover{
     background-color: #333;
   }
 
-  .svgHome{
+  .svgIcon{
     width: 30px;
     color: white;
     fill: none;
@@ -183,8 +192,17 @@
     stroke: currentColor;
   }
 
-  .pathHome{
+  .svg-path{
     stroke-linecap: round;
     stroke-linejoin: round;
+  }
+
+  .div-result-popup {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    width: 100%;
+    z-index: 9999;
+    height: 24%;
   }
       

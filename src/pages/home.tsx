@@ -9,8 +9,9 @@ import AddFilmPopup from '../components/popups/addFilmPopup';
 import MoviesCarousel from '../components/moviesCarousel';
 import { useLoading } from '../context/loadingContext';
 import { useUpdate } from '../context/updateContext';
-import { Carousel } from 'antd';
 import MovieDetailsPopup from '../components/popups/movieDetailsPopup';
+import { Genre } from '../interfaces/genre';
+import { MoviesWithImages } from '../interfaces/MoviesWithImages';
 
 const Home = () => {
   const location = useLocation();
@@ -19,8 +20,8 @@ const Home = () => {
   const [isMovieDetailsPopupOpen, setIsMovieDetailsPopupOpen] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [selectedMovieImage, setSelectedMovieImage] = useState('');
-  const [genres, setGenres] = useState([]);
-  const [moviesWithImages, setMoviesWithImages] = useState({});
+  const [genres, setGenres] = useState<Genre[]>([]);
+  const [moviesWithImages, setMoviesWithImages] = useState<MoviesWithImages>({});
   const { setLoading } = useLoading();
   const { update } = useUpdate();
 
@@ -50,9 +51,7 @@ const Home = () => {
         }
 
         const data = await response.json();
-        const sortedGenres = data.genres.sort((a, b) => a.genre.localeCompare(b.genre));
-        console.log('data', data);
-        console.log('genres', sortedGenres);
+        const sortedGenres: Genre[] = data.genres.sort((a: Genre, b: Genre) => a.genre.localeCompare(b.genre));
         setGenres(sortedGenres);
         fetchMovieImages(sortedGenres);
       } catch (error) {
@@ -60,9 +59,9 @@ const Home = () => {
       }
     };
 
-    const fetchMovieImages = async (genres) => {
+    const fetchMovieImages = async (genres: Genre[]) => {
       try {
-        const movieTitles = genres.flatMap(genre => genre.movies.map(movie => movie.titulo));
+        const movieTitles = genres.flatMap(genre => genre.movies.map((movie: Movie) => movie.titulo));
         const response = await fetch('/api/get-movie-posters', {
           method: 'POST',
           headers: {
@@ -74,8 +73,8 @@ const Home = () => {
         if (!response.ok) {
           throw new Error('Failed to fetch movie images');
         }
-
-        const data = await response.json();
+        
+        const data = await response.json();        
         setMoviesWithImages(data.moviesWithImages);
       } catch (error) {
         console.error('Error fetching movie images:', error);
@@ -108,7 +107,7 @@ const Home = () => {
               <MoviesCarousel
                 slides={genre.movies.map(movie => ({
                   image: moviesWithImages[movie.titulo] || '',
-                  data: movie
+                  movie: movie
                 }))}
                 onSlideClick={toggleMovieDetailsPopup}
               />

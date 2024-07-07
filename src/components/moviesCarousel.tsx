@@ -4,12 +4,13 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../styles/moviesCarousel.css";
 import { Carousel } from 'primereact/carousel';
+import { CarouselSlide } from "../interfaces/CarouselSlide";
 
-function MoviesCarousel({ slides, onSlideClick }: { slides: { image: string, data: any }[], onSlideClick: (movie: any, image: string) => void }) {
+function MoviesCarousel({ slides, onSlideClick }: { slides: CarouselSlide[], onSlideClick: (movie: any, image: string) => void }) {
 
-    const slideTemplate = (slide) => {
+    const slideTemplate = (slide: CarouselSlide) => {
         return (
-            <div className="slide-inner" onClick={() => onSlideClick(slide.data, slide.image)}>
+            <div className="slide-inner" onClick={() => onSlideClick(slide.movie, slide.image)}>
                 <img src={slide.image} alt={`slide`} className="carousel-image" />
             </div>
         );

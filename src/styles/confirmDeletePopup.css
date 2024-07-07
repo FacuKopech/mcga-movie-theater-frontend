@@ -1,0 +1,68 @@
+.warning-popup-overlay{
+    position: absolute;
+    z-index: 9999;
+    background-color: rgb(65, 65, 65);
+    width: 24%;
+    height: 235px;
+    border-radius: 20px;
+    border: 3px solid rgb(221, 221, 13);
+}
+
+.warning-popup-content{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.warning-svg-icon{
+    width: 80px;
+    height: 80px;
+    color: rgb(221, 221, 13);
+    stroke: currentColor;
+    stroke-width: 1.5;
+}
+
+.div-warning-message{
+    font-family: "Coustard", serif;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.icon-path{
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.div-action-btns button{
+    border: none;
+    background-color: transparent;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.div-action-btns .close-svg-icon{
+    stroke: currentColor;
+    stroke-width: 1.5;
+    width: 30px;
+    height: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.close-svg-icon:hover{
+    color:black;
+}
+
+.div-action-btns .delete-svg-icon{
+    stroke: currentColor;
+    stroke-width: 1.5;
+    width: 30px;
+    height: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.delete-svg-icon:hover{
+    color: rgb(176, 13, 13);
+}

@@ -1,7 +1,7 @@
 interface Movie {
   _id: string;
   index: number;
-  nombre: string;
+  titulo: string;
   descripcion: string;
   estrellas: number;
   duracion: string;

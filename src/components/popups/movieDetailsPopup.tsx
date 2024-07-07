@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import '../../styles/movieDetailsPopup.css';
 import Star from '../star';
 import ConfirmDeletePopup from './confirmDeletePopup';

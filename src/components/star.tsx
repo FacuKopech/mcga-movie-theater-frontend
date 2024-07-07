@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/star.css'
 
 const Star = ({ filled }: { filled: boolean }) => (

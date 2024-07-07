@@ -1,17 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import '../styles/login.css'
 import { useLoading } from '../context/loadingContext';
 import Register from './register';
-import ResultPopup from '../components/popups/resultPopup';
 
-const Login = ({ closePopup }: { closePopup: () => void }) => {
+const Login = ({ }: { closePopup: () => void }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showRegister, setShowRegister] = useState(false);
-  const [resultMessage, setResultMessage] = useState('');
-  const [showResultPopup, setShowResultPopup] = useState(false);
   const navigate = useNavigate();
   const [loginMessageError, setLoginMessageError] = useState('');
   const [registerSuccessMessage, setRegisterResultMessage] = useState('');

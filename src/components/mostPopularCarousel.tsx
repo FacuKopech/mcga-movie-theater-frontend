@@ -5,7 +5,7 @@ import '../interfaces/CarouselProps'
 const MostPopularCarousel: React.FC<CarouselProps> = ({ images }) => {
   const [current, setCurrent] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
-  let timeOut = null;
+  let timeOut;
 
   const slideLeft = () => {
     setCurrent(current === 0 ? images.length - 1 : current - 1);
@@ -17,6 +17,7 @@ const MostPopularCarousel: React.FC<CarouselProps> = ({ images }) => {
 
   useEffect(() => {
     timeOut = autoPlay && setTimeout(() => slideRight(), 2500);
+    console.log(timeOut);
   });
   
   return (

@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/addButton.css';
 
 function AddButton({ onClick }: { onClick: () => void }) {

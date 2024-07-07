@@ -17,9 +17,9 @@ const App = () => {
         <Route path="/login" element={<Login closePopup={function (): void {
           throw new Error("Function not implemented.");
         } } />} />
-        <Route path="/register" element={<Register onClick={function (showRegister: boolean): void {
+        <Route path="/register" element={<Register onClick={function (): void {
           throw new Error("Function not implemented.");
-        } } onRegisterResult={function (message: string): void {
+        } } onRegisterResult={function (): void {
           throw new Error("Function not implemented.");
         } } />} />
         <Route path="*" element={<ErrorPage />} />

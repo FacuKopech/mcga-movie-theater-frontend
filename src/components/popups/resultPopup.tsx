@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import CheckmarkAnimation from '../succesfullCheckmarkAnimation'; // Make sure to update the path to where you save the component
+import CheckmarkAnimation from '../succesfullCheckmarkAnimation';
 import '../../interfaces/ResultPopupProps'
 import CrossAnimation from '../failCrossMark';
 import '../../styles/resultPopup.css'
@@ -11,7 +11,7 @@ const ResultPopup: React.FC<ResultPopupProps> = ({ resultMessage, closePopup }) 
   const { triggerUpdate } = useUpdate();
 
   useEffect(() => {
-    if (resultMessage === 'Movie uploaded successfully') {
+    if (resultMessage.includes('successfully')) {
       setShowCheckmark(true);
       setShowCross(false);
     } else {
@@ -26,7 +26,7 @@ const ResultPopup: React.FC<ResultPopupProps> = ({ resultMessage, closePopup }) 
   };
 
   return (
-    <div className="result-popup-overlay">
+    <div className={`result-popup-overlay ${showCheckmark ? 'show-checkmark-border' : 'show-cross-border'}`}>
       <div className="result-popup-content">
         <div className='div-result-message'>
           <p>{resultMessage}</p>

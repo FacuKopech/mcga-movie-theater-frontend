@@ -3,9 +3,16 @@
     z-index: 9999;
     background-color: rgb(65, 65, 65);
     width: 24%;
-    height: 235px;
+    height: 256px;
     border-radius: 20px;
+}
+
+.show-checkmark-border{
     border: 3px solid #369822;
+}
+
+.show-cross-border{
+    border: 3px solid rgb(203, 41, 41);
 }
 
 .result-popup-content{
@@ -23,10 +30,6 @@
 .div-result-message p{
     color: white;
     font-family: "Coustard", serif;
-}
-
-.div-result-icon{
-    margin-bottom: 12px;
 }
 
 .div-close-btn button{

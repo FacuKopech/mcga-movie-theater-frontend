@@ -42,6 +42,7 @@ const AddFilmPopup = ({ closePopup }: { closePopup: () => void }) => {
     try {
       if (titulo === '' || descripcion === '' || estrellas === 0 || duracion === '' || genero === '') {
         setMessageError('All fields are required');
+        setLoading(false);
       } else {
         const response = await fetch('/api/add-movie', {
           method: 'POST',
@@ -62,6 +63,7 @@ const AddFilmPopup = ({ closePopup }: { closePopup: () => void }) => {
         console.log('Movie uploaded');
       }
     } catch (error) {
+      setLoading(false);
       console.error('Error during movie upload:', error);
       setResultMessage('Error during movie upload');
       setShowResultPopup(true);
@@ -70,7 +72,7 @@ const AddFilmPopup = ({ closePopup }: { closePopup: () => void }) => {
 
   return (
     <div className="popup-overlay">
-      <div className="popup-content">
+      <div className="add-film-popup-content">
         <h2>Add Movie</h2>
         <p className='p-error-message'>{errorMessage}</p>
         <form action="" method='post'>

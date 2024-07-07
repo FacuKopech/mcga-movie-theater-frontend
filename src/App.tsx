@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import Login from "./pages/login";
-import Home from './pages/home'
 import './App.css'
 import { useLoading, LoadingProvider } from "./context/loadingContext";
 import Spinner from "./components/spinner";
 import HomePageWithProvider from "./pages/homePageWithProvider";
 import ErrorPage from "./pages/404ErrorPage";
+import Register from "./pages/register";
 
 const App = () => {
   const { loading } = useLoading();
@@ -14,7 +14,14 @@ const App = () => {
       {loading && <Spinner />}
       <Routes>
         <Route path="/" element={<HomePageWithProvider />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login closePopup={function (): void {
+          throw new Error("Function not implemented.");
+        } } />} />
+        <Route path="/register" element={<Register onClick={function (showRegister: boolean): void {
+          throw new Error("Function not implemented.");
+        } } onRegisterResult={function (message: string): void {
+          throw new Error("Function not implemented.");
+        } } />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

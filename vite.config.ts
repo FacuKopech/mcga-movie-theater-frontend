@@ -11,7 +11,7 @@ export default ({ mode }: { mode: ViteMode }) => {
     server: {
       proxy: {
         '/api': {
-          target: process.env.VITE_BACK_END_URL,
+          target: 'https://movie-theater-backend-ten.vercel.app',
           changeOrigin: true,
         },
       },

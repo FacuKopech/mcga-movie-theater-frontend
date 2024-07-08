@@ -6,10 +6,13 @@ type ViteMode = 'dev' | 'prod' | string;
 export default ({ mode }: { mode: ViteMode }) => {
   return defineConfig({
     plugins: [react()],
+    define:{
+      'process.env.VITE_APP_BACKEND_URL': JSON.stringify(process.env.VITE_APP_BACKEND_URL)
+    },
     server: {
       proxy: {
         '/api': {
-          target: JSON.stringify(loadEnv(mode, process.cwd()).VITE_APP_BACKEND_URL),
+          target: JSON.stringify(process.env.VITE_APP_BACKEND_URL),
           changeOrigin: true,
         },
       },

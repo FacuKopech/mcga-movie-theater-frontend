@@ -12,7 +12,7 @@ export default ({ mode }: { mode: ViteMode }) => {
     server: {
       proxy: {
         '/api': {
-          target: JSON.stringify(process.env.VITE_APP_BACKEND_URL),
+          target: JSON.stringify(loadEnv(mode, process.cwd()).VITE_APP_BACKEND_URL),
           changeOrigin: true,
         },
       },

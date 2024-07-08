@@ -4,14 +4,14 @@ import react from '@vitejs/plugin-react-swc';
 type ViteMode = 'dev' | 'prod' | string;
 
 export default ({ mode }: { mode: ViteMode }) => {
-  loadEnv(mode, process.cwd(), '');
-  
+  const env = loadEnv(mode, process.cwd(), '');
+
   return defineConfig({
     plugins: [react()],
     server: {
       proxy: {
         '/api': {
-          target: 'https://movie-theater-backend-ten.vercel.app',
+          target: env.VITE_BACK_END_URL,
           changeOrigin: true,
         },
       },

@@ -12,7 +12,7 @@ import { useUpdate } from '../context/updateContext';
 import MovieDetailsPopup from '../components/popups/movieDetailsPopup';
 import { Genre } from '../interfaces/genre';
 import { MoviesWithImages } from '../interfaces/MoviesWithImages';
-import {BACKEND_URL} from '../config/config'
+import {VITE_APP_BACKEND_URL} from '../config/config'
 
 const Home = () => {
   const location = useLocation();
@@ -40,7 +40,7 @@ const Home = () => {
     const fetchGenres = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`${BACKEND_URL}/api/get-genres`, {
+        const response = await fetch(`${VITE_APP_BACKEND_URL}/api/get-genres`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

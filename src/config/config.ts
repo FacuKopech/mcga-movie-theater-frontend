@@ -1,5 +1,1 @@
-import env from 'dotenv';
-
-env.config();
-
-export const BACKEND_URL: string = process.env.VITE_APP_BACKEND_URL as string;
+export const VITE_APP_BACKEND_URL: string = "https://movie-theater-backend-ten.vercel.app";

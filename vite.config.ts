@@ -1,18 +1,9 @@
-import { defineConfig, loadEnv } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import { defineConfig } from 'vite';
 
-type ViteMode = 'dev' | 'prod' | string;
-
-export default ({ mode }: { mode: ViteMode }) => {
-  return defineConfig({
-    plugins: [react()],
-    server: {
-      proxy: {
-        '/api': {
-          target: JSON.stringify(loadEnv(mode, process.cwd()).VITE_APP_BACKEND_URL),
-          changeOrigin: true,
-        },
-      },
+export default defineConfig(() => {
+  return {
+    define: {
+      __APP_ENV__: process.env.VITE_APP_BACKEND_URL,
     },
-  });
-};
+  };
+});

@@ -1,12 +1,13 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite'
 
-export default defineConfig(() => {
+export default defineConfig(({ command, mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
   return {
     define: {
-      __APP_ENV__: JSON.stringify(process.env.VITE_APP_BACKEND_URL),
+      __APP_ENV__: JSON.stringify(env.VITE_APP_BACKEND_URL),
     },
-  };
-});
+  }
+})
 
 // type ViteMode = 'dev' | 'prod' | string;
 

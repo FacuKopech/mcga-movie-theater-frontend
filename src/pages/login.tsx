@@ -15,6 +15,8 @@ const Login = ({ }: { closePopup: () => void }) => {
   const { setLoading } = useLoading();
 
   const handleLogin = async (e: any) => {
+    setLoginMessageError('');
+    setRegisterResultMessage('');
     e.preventDefault();
     setLoading(true);
     try {

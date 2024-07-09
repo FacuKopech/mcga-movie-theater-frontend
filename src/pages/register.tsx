@@ -31,7 +31,12 @@ const Register: React.FC<RegisterPageProps> = ({ onClick, onRegisterResult }) =>
           body: JSON.stringify({ name, username, email, password }),
         });
 
-        if (!response.ok) {
+        if (!response.ok && response.status == 400) {
+          response.json().then(data => {
+            setRegisterMessageError(data.message);
+          });
+
+        } else if (!response.ok) {
           setRegisterMessageError('Failed to register new user. Please try again');
         } else {
           onRegisterResult('User registered successfully');

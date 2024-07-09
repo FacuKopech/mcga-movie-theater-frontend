@@ -44,7 +44,7 @@ const AddFilmPopup = ({ closePopup }: { closePopup: () => void }) => {
         setMessageError('All fields are required');
         setLoading(false);
       } else {
-        const response = await fetch('/api/add-movie', {
+        const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/add-movie`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

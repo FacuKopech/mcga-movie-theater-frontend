@@ -49,7 +49,7 @@ const UpdatePopup: React.FC<UpdatePopupProps> = ({ movie, closePopup, onResult }
         setMessageError('All fields are required');
       } else {
         const movieId = movie._id;
-        const response = await fetch('/api/update-movie', {
+        const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/update-movie`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

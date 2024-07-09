@@ -18,7 +18,7 @@ const Login = ({ }: { closePopup: () => void }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch('/api/login', {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

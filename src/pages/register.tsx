@@ -23,7 +23,7 @@ const Register: React.FC<RegisterPageProps> = ({ onClick, onRegisterResult }) =>
       } else if (password !== passwordConfirmation) {
         setRegisterMessageError('Password & Password Confirmation do not match');
       } else {
-        const response = await fetch('/api/register', {
+        const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/register`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -62,7 +62,7 @@ const Home = () => {
     const fetchMovieImages = async (genres: Genre[]) => {
       try {
         const movieTitles = genres.flatMap(genre => genre.movies.map((movie: Movie) => movie.titulo));
-        const response = await fetch('/api/get-movie-posters', {
+        const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/get-movie-posters`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

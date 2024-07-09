@@ -18,7 +18,7 @@ const ConfirmDeletePopup: React.FC<ConfirmDeletePopupProps> = ({ movieId, closeP
         setLoading(false);
         setMessageError('Missing movie ID');
       } else {
-        const response = await fetch('/api/delete-movie', {
+        const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/delete-movie`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',

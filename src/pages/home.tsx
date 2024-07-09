@@ -39,7 +39,7 @@ const Home = () => {
     const fetchGenres = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`/api/get-genres`, {
+        const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/get-genres`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

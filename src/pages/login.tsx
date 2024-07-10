@@ -5,7 +5,7 @@ import '../styles/login.css'
 import { useLoading } from '../context/loadingContext';
 import Register from './register';
 
-const Login: React.FC<{ closePopup: () => void, setIsAuthenticated: (isAuthenticated: boolean) => void }> = ({ closePopup, setIsAuthenticated }) => {
+const Login: React.FC<{ setIsAuthenticated: (isAuthenticated: boolean) => void }> = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showRegister, setShowRegister] = useState(false);

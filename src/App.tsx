@@ -16,9 +16,7 @@ const App = () => {
       {loading && <Spinner />}
       <Routes>
         <Route path="/" element={<HomePageWithProvider />} />
-        <Route path="/login" element={<Login closePopup={function (): void {
-          throw new Error("Function not implemented.");
-        }} setIsAuthenticated={setIsAuthenticated} />} />
+        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
         <Route element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
           <Route path="/home" element={<HomePageWithProvider />} />
         </Route>

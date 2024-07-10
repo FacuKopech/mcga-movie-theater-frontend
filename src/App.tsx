@@ -5,7 +5,6 @@ import { useLoading, LoadingProvider } from "./context/loadingContext";
 import Spinner from "./components/spinner";
 import HomePageWithProvider from "./pages/homePageWithProvider";
 import ErrorPage from "./pages/404ErrorPage";
-import Register from "./pages/register";
 
 const App = () => {
   const { loading } = useLoading();
@@ -16,12 +15,7 @@ const App = () => {
         <Route path="/" element={<HomePageWithProvider />} />
         <Route path="/login" element={<Login closePopup={function (): void {
           throw new Error("Function not implemented.");
-        } } />} />
-        <Route path="/register" element={<Register onClick={function (): void {
-          throw new Error("Function not implemented.");
-        } } onRegisterResult={function (): void {
-          throw new Error("Function not implemented.");
-        } } />} />
+        } } />} />        
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

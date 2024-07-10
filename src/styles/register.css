@@ -184,9 +184,3 @@
     stroke-linecap: round;
     stroke-linejoin: round;
   }
-
-  @media (max-width: 430px) {
-    .div_popcorn_icon{
-      top: 226px
-    }
-  }

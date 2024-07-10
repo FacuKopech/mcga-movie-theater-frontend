@@ -207,9 +207,3 @@
   z-index: 9999;
   height: 24%;
 }
-
-@media (max-width: 430px) {
-  .div_popcorn_icon{
-    top: 226px
-  }
-}

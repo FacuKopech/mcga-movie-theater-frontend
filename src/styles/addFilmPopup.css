@@ -18,8 +18,8 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    width: 20%;
-    height: 50%;
+    width: fit-content;
+    height: 52%;
     background: #20405a;
     padding: 20px;
     border-radius: 20px;
@@ -136,10 +136,4 @@
   .add-svg-icon:hover {
     color: rgb(26, 113, 26);
     transform: scale(1.2);
-  }
-
-  @media (max-width: 530px) {
-    .add-film-popup-content{
-      width: fit-content;
-    }
   }

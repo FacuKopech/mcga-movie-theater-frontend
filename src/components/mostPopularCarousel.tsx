@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/carousel.css';
 import '../interfaces/CarouselProps'
 
 const MostPopularCarousel: React.FC<CarouselProps> = ({ images }) => {
   const [current, setCurrent] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
-  let timeOut;
+  const timeOutRef = useRef<NodeJS.Timeout | null>(null);
 
   const slideLeft = () => {
     setCurrent(current === 0 ? images.length - 1 : current - 1);
@@ -16,9 +16,19 @@ const MostPopularCarousel: React.FC<CarouselProps> = ({ images }) => {
   }
 
   useEffect(() => {
-    timeOut = autoPlay && setTimeout(() => slideRight(), 2500);
-    console.log(timeOut);
-  });
+    if (timeOutRef.current) {
+      clearTimeout(timeOutRef.current);
+    }
+    if (autoPlay) {
+      timeOutRef.current = setTimeout(() => slideRight(), 2500);
+    }
+
+    return () => {
+      if (timeOutRef.current) {
+        clearTimeout(timeOutRef.current);
+      }
+    };
+  }, [current, autoPlay]);
   
   return (
     <div className="carousel-container" onMouseEnter={() => setAutoPlay(false)} onMouseLeave={() => setAutoPlay(true)}>

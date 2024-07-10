@@ -5,8 +5,11 @@ import { useLoading, LoadingProvider } from "./context/loadingContext";
 import Spinner from "./components/spinner";
 import HomePageWithProvider from "./pages/homePageWithProvider";
 import ErrorPage from "./pages/404ErrorPage";
+import PrivateRoute from "./components/PrivateRoute";
+import { useState } from "react";
 
 const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { loading } = useLoading();
   return (
     <div className="div-app-container">
@@ -15,7 +18,10 @@ const App = () => {
         <Route path="/" element={<HomePageWithProvider />} />
         <Route path="/login" element={<Login closePopup={function (): void {
           throw new Error("Function not implemented.");
-        } } />} />        
+        }} setIsAuthenticated={setIsAuthenticated} />} />
+        <Route element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
+          <Route path="/home" element={<HomePageWithProvider />} />
+        </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

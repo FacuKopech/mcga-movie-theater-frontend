@@ -5,7 +5,7 @@ import '../styles/login.css'
 import { useLoading } from '../context/loadingContext';
 import Register from './register';
 
-const Login = ({ }: { closePopup: () => void }) => {
+const Login: React.FC<{ closePopup: () => void, setIsAuthenticated: (isAuthenticated: boolean) => void }> = ({ closePopup, setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showRegister, setShowRegister] = useState(false);
@@ -37,8 +37,8 @@ const Login = ({ }: { closePopup: () => void }) => {
       const { token } = await response.json();
       const decodedToken: any = jwtDecode(token);
       const { name } = decodedToken;
-
-      navigate('/', { state: { name } });
+      setIsAuthenticated(true);
+      navigate('/home', { state: { name } });
     } catch (error) {
       console.error('Error during login:', error);
     } finally {

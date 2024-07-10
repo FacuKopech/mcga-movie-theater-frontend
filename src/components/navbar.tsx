@@ -28,10 +28,10 @@ const Navbar: React.FC<NavbarProps> = ({ name }) => {
     <div className="navbar-container">
       <nav className="navbar">
         <div className='divContainer'>
+          <div className="navbar-logo"></div>
           <div className='title'>
             <p>Movie Theater</p>
           </div>
-          <div className="navbar-logo"></div>
         </div>
         <div className="navbar-links">
           {!name ? (

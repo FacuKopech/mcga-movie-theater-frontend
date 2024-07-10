@@ -1,4 +1,4 @@
-.result-popup-overlay{
+.result-popup-overlay {
     position: absolute;
     z-index: 9999;
     background-color: rgb(65, 65, 65);
@@ -7,34 +7,44 @@
     border-radius: 20px;
 }
 
-.show-checkmark-border{
+.show-checkmark-border {
     border: 3px solid #369822;
 }
 
-.show-cross-border{
+.show-cross-border {
     border: 3px solid rgb(203, 41, 41);
 }
 
-.result-popup-content{
+.result-popup-content {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
 }
 
-.div-result-message{
+.div-result-message {
     margin-top: 14px;
     margin-bottom: 9px;
 }
 
-.div-result-message p{
+.div-result-message p {
     color: white;
     font-family: "Coustard", serif;
 }
 
-.div-close-btn button{
+.div-close-btn button {
     border: none;
     background-color: transparent;
     font-size: larger;
     cursor: pointer;
+}
+
+@media (max-width: 1500px) {
+    .result-popup-overlay {
+        width: fit-content;
+    }
+
+    .result-popup-content{
+        padding: 8px;
+    }
 }

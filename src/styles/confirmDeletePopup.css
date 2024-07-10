@@ -13,6 +13,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+    padding: 12px;
 }
 
 .warning-svg-icon{
@@ -27,6 +28,7 @@
     font-family: "Coustard", serif;
     color: white;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .icon-path{
@@ -39,6 +41,7 @@
     background-color: transparent;
     font-size: larger;
     cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
 .div-action-btns .close-svg-icon{
@@ -65,4 +68,11 @@
 
 .delete-svg-icon:hover{
     color: rgb(176, 13, 13);
+    transform: scale(1.2);
 }
+
+@media (max-width: 1380px) {
+    .warning-popup-overlay{
+      width: fit-content;
+    }
+  }

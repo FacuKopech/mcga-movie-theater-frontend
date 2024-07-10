@@ -47,23 +47,31 @@ const UpdatePopup: React.FC<UpdatePopupProps> = ({ movie, closePopup, onResult }
     try {
       if (titulo === '' || descripcion === '' || estrellas === 0 || duracion === '' || genero === '') {
         setMessageError('All fields are required');
-      } else {
+        setLoading(false);
+      } else if(titulo == movie.titulo && descripcion == movie.descripcion && estrellas == movie.estrellas && duracion == movie.duracion && genero == movie.genero){
+        setMessageError('Change at least one field to update');
+        setLoading(false);
+      } else{
         const movieId = movie._id;
         const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/update-movie`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({movieId, titulo, descripcion, estrellas, duracion, genero }),
+          body: JSON.stringify({ movieId, titulo, descripcion, estrellas, duracion, genero }),
           credentials: 'include',
         });
 
-        if (!response.ok) {
+        if (!response.ok && response.status == 400) {
+          response.json().then(data => {
+            onResult(data.message);
+          });
+        } else if (!response.ok) {
           response.status == 401 ? setMessageError('Access Denied') : setMessageError('');
-          throw new Error('Failed to load movie');
+          throw new Error('Failed to update movie');
         }
         setLoading(false);
-        onResult('Movie deleted successfully');
+        onResult('Movie updated successfully');
       }
     } catch (error) {
       setLoading(false);
@@ -86,7 +94,7 @@ const UpdatePopup: React.FC<UpdatePopupProps> = ({ movie, closePopup, onResult }
               value={titulo}
               onChange={handleTituloChange} />
           </div>
-          <div className="div-input">
+          <div className="div-input div-input-textarea">
             <label htmlFor="">Descripcion</label>
             <textarea id="descripcion"
               name="descripcion"
@@ -137,8 +145,16 @@ const UpdatePopup: React.FC<UpdatePopupProps> = ({ movie, closePopup, onResult }
             </select>
           </div>
           <div className="action-buttons">
-            <button onClick={closePopup}>Close</button>
-            <button onClick={updateMovie}>Update</button>
+            <button onClick={closePopup} title='Close'>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className='close-svg-icon'>
+                <path className='icon-path' d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <button title='Update' onClick={updateMovie}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className='update-svg-icon'>
+                <path className='icon-path' d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" />
+              </svg>
+            </button>
           </div>
         </form>
       </div>

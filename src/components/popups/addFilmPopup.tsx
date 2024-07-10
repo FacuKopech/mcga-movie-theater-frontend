@@ -53,7 +53,11 @@ const AddFilmPopup = ({ closePopup }: { closePopup: () => void }) => {
           credentials: 'include',
         });
 
-        if (!response.ok) {
+        if (!response.ok && response.status == 400) {
+          response.json().then(data => {
+            setResultMessage(data.message);
+          });
+        } else if (!response.ok) {
           response.status == 401 ? setMessageError('Access Denied') : setMessageError('');
           throw new Error('Failed to load movie');
         }
@@ -131,8 +135,17 @@ const AddFilmPopup = ({ closePopup }: { closePopup: () => void }) => {
             </select>
           </div>
           <div className="action-buttons">
-            <button onClick={closePopup}>Close</button>
-            <button onClick={submitMovie}>Add</button>
+            <button onClick={closePopup} title='Close'>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className='close-svg-icon'>
+                <path className='icon-path' d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <button title='Update' onClick={submitMovie}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className='add-svg-icon'>
+                <path className='icon-path' d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+
+            </button>
           </div>
         </form>
       </div>

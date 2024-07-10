@@ -19,7 +19,7 @@
     align-items: center;
     justify-content: space-between;
     width: 20%;
-    height: 42%;
+    height: 50%;
     background: #20405a;
     padding: 20px;
     border-radius: 20px;
@@ -28,8 +28,9 @@
     border: 2px solid white;
   }
 
-  .popup-content h2{
+  .add-film-popup-content h2{
     font-family: "Coustard", serif;
+    margin: 5px;
   }
 
   .p-error-message{
@@ -116,17 +117,29 @@
   }
 
   .action-buttons button{
-    background-color: transparent;
     border: none;
     cursor: pointer;
-    font-size: large;
     color: white;
     border-radius: 100%;
     height: 50px;
+    transition: transform 0.2s ease;
   }
 
-  .action-buttons button:hover{
-    color: black;
+  .action-buttons .add-svg-icon {
+    stroke: currentColor;
+    stroke-width: 1.5;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
   }
-  
-  
+ 
+  .add-svg-icon:hover {
+    color: rgb(26, 113, 26);
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 530px) {
+    .add-film-popup-content{
+      width: fit-content;
+    }
+  }

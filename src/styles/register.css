@@ -1,7 +1,10 @@
-#form {
+#form-register {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    width: 300px;
+    width: 350px;
     height: 472px;
     padding: 25px;
     background-color: #161616;
@@ -9,26 +12,24 @@
     outline: 1px solid #274156;
     border-radius: 10px;
   }
-  
-  #form-body-register {
-    position: absolute;
-    top: 50%;
-    right: 25px;
-    left: 25px;
-    width: 21%;    
-    margin: -156px auto 0 auto;
+
+  #form-body-register{
+    height: 50%;
   }
-  
+
   .div_popcorn_icon{
-    background-image: url('../assets/backgrounds/popcorn.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 59px;
-    height: 63px;
-    position: fixed;
-    top: 406px;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 394px;
   }
+
+  .div_popcorn_icon svg{
+    fill: white;
+    width: 70px;
+    height: 70px;
+  }
+
 
   #welcome-lines {
     text-align: center;
@@ -59,7 +60,13 @@
   }
   
   .input-area {
-    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 34px;
   }
 
   .input-area-modified {
@@ -108,6 +115,10 @@
     justify-content: center;
     margin-bottom: 7px;
   }
+
+  .div-middle-inputs div{
+    width: 80%;
+  }
   
   #submit-button-cvr-register {
     display: flex;
@@ -118,7 +129,7 @@
   
   #submit-button-register {
     display: block;
-    width: 50%;
+    width: 70%;
     color: #274156;
     background-color: transparent;
     font-weight: 600;
@@ -138,36 +149,6 @@
     background-color: #274156;
     color: #161616;
     cursor: pointer;
-  }
-  
-  
-  #bar {
-    position: absolute;
-    left: 50%;
-    bottom: -50px;
-    width: 28px;
-    height: 8px;
-    margin-left: -33px;
-    background-color: #274156;
-    border-radius: 10px;
-  }
-  
-  #bar:before,
-  #bar:after {
-    content: "";
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background-color: #ececec;
-    border-radius: 50%;
-  }
-  
-  #bar:before {
-    right: -20px;
-  }
-  
-  #bar:after {
-    right: -38px;
   }
   
 
@@ -203,4 +184,9 @@
     stroke-linecap: round;
     stroke-linejoin: round;
   }
-      
+
+  @media (max-width: 430px) {
+    .div_popcorn_icon{
+      top: 226px
+    }
+  }

@@ -108,3 +108,9 @@
     background-color: #456177;
     transform: scale(1.2);
 }
+
+@media (max-width: 650px) {
+    .carousel_pagination{
+        width: 30%;
+    }
+}

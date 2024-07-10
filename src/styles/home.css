@@ -25,9 +25,7 @@ html {
     font-family: "Coustard", serif;
     text-decoration: underline;
     color: aliceblue;
-    position: relative;
     width: fit-content;
-    right: 312px;
 }
 
 .div_add_button{

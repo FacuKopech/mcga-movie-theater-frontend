@@ -2,8 +2,8 @@
     position: absolute;
     z-index: 9999;
     background-color: rgb(65, 65, 65);
-    width: 24%;
-    height: 430px;
+    width: 326px;
+    height: 490px;
     border-radius: 20px;
     border: 3px solid #2a5c85;
   }
@@ -19,13 +19,14 @@
     margin-left: 12px;
   }
 
-  .popup-content h2{
+  .update-popup-content h2{
     font-family: "Coustard", serif;
+    margin: 5px;
   }
 
   .p-error-message{
     color: #be3131;
-    font-size: medium;
+    font-size: small;
     font-weight: bold;
     font-family: "Coustard", serif;  
     margin: 0;
@@ -37,7 +38,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    height: 80%;
+    height: 85%;    
     width: 100%;
   }
 
@@ -65,9 +66,15 @@
     border: none;
   }
 
+  .div-input-textarea{
+    height: 88px;
+  }
+
   .div-input textarea{
     resize: vertical;
-    max-height: 30px;
+    max-height: 60px;
+    min-height: 40px;
+    height: 80px;
   }
 
   .div-input-rating label{
@@ -105,18 +112,42 @@
     justify-content: space-evenly;
   }
 
-  .action-buttons button{
-    background-color: transparent;
+  .action-buttons button {
     border: none;
+    background-color: transparent;
+    font-size: larger;
     cursor: pointer;
-    font-size: large;
     color: white;
-    border-radius: 100%;
-    height: 50px;
+    transition: transform 0.2s ease;
+  }
+ 
+  .action-buttons .close-svg-icon {
+    stroke: currentColor;
+    stroke-width: 1.5;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
+ 
+  .close-svg-icon:hover {
+    color: black;
+    transform: scale(1.2);
   }
 
-  .action-buttons button:hover{
-    color: black;
+  .icon-path {
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
-  
-  
+
+  .action-buttons .update-svg-icon {
+    stroke: currentColor;
+    stroke-width: 1.5;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
+ 
+  .update-svg-icon:hover {
+    color: rgb(233, 233, 36);
+    transform: scale(1.2);
+  }

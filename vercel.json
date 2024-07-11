@@ -1,6 +1,13 @@
 {
   "routes": [
     {
+      "src": "/src/(.*)",
+      "headers": {
+        "cache-control": "public,max-age=31536000,immutable"
+      },
+      "dest": "/src/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }

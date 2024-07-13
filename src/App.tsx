@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
-    return document.cookie.split(';').some((cookie) => cookie.trim().startsWith('token='));
+    return document.cookie.split(';').some((cookie) => cookie.trim().startsWith('token'));
   });
   const { loading } = useLoading();
   const navigate = useNavigate();

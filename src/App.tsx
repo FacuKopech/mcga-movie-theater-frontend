@@ -5,7 +5,6 @@ import { useLoading, LoadingProvider } from "./context/loadingContext";
 import Spinner from "./components/spinner";
 import HomePageWithProvider from "./pages/homePageWithProvider";
 import ErrorPage from "./pages/404ErrorPage";
-import PrivateRoute from "./components/PrivateRoute";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 

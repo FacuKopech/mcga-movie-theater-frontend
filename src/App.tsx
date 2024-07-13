@@ -1,15 +1,44 @@
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Login from "./pages/login";
 import './App.css'
 import { useLoading, LoadingProvider } from "./context/loadingContext";
 import Spinner from "./components/spinner";
 import HomePageWithProvider from "./pages/homePageWithProvider";
 import ErrorPage from "./pages/404ErrorPage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    return document.cookie.split(';').some((cookie) => cookie.trim().startsWith('token'));
+  });
   const { loading } = useLoading();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/check-auth`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+        });
+
+        if (response.ok) {
+          setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);
+        }
+      } catch (error) {
+        console.error("Error checking authentication:", error);
+        setIsAuthenticated(false);
+      }
+    };
+
+    checkAuth();
+  }, [navigate]);
+
 
   return (
     <div className="div-app-container">

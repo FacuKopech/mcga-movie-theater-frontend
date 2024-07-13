@@ -30,12 +30,10 @@ const App = () => {
           setIsAuthenticated(true);
         } else {
           setIsAuthenticated(false);
-          navigate("/login");
         }
       } catch (error) {
         console.error("Error checking authentication:", error);
         setIsAuthenticated(false);
-        navigate("/login");
       }
     };
 

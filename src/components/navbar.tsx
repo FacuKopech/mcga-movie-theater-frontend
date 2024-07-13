@@ -11,7 +11,7 @@ const Navbar: React.FC<NavbarProps> = ({ name }) => {
     try {
       const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/logout`, {
         method: 'GET',
-        credentials: 'include',
+        credentials: 'same-origin',
       });
 
       if (response.ok) {

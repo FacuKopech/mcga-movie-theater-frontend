@@ -5,26 +5,11 @@ import { useLoading, LoadingProvider } from "./context/loadingContext";
 import Spinner from "./components/spinner";
 import HomePageWithProvider from "./pages/homePageWithProvider";
 import ErrorPage from "./pages/404ErrorPage";
-import { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
+import { useState } from "react";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [cookies] = useCookies(['token']);
   const { loading } = useLoading();
-
-  useEffect(() => {
-    const handleAuthentication = async () => {
-      const token = cookies.token;
-      if (token) {
-        setIsAuthenticated(true);
-      } else {
-        setIsAuthenticated(false);
-      }
-    };
-
-    handleAuthentication();
-  }, [cookies]);
 
   return (
     <div className="div-app-container">

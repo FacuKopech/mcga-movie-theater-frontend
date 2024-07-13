@@ -25,6 +25,7 @@ const App = () => {
         });
         if (response.ok) {
           setIsAuthenticated(true);
+          console.log('IS AUTHENTICATED', isAuthenticated)
         } else {
           setIsAuthenticated(false);
           navigate("/login");

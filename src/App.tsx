@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, useLocation, Navigate, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Login from "./pages/login";
 import './App.css'
 import { useLoading, LoadingProvider } from "./context/loadingContext";
@@ -9,7 +9,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import { useEffect, useState } from "react";
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false); // Start with false by default
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const { loading } = useLoading();
   const navigate = useNavigate();
 

@@ -15,19 +15,13 @@ const App = () => {
   });
   const { loading } = useLoading();
   const [cookies] = useCookies(['token']);
-
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (cookies.token) {
-      console.log('COOKIES', cookies);
-      console.log('TOKEN', cookies.token);
-    }
-  }, [cookies]);
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
+        console.log('COOKIES', cookies);
+        console.log('TOKEN', cookies.token);
         const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/check-auth`, {
           method: 'GET',
           headers: {

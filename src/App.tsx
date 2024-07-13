@@ -23,7 +23,7 @@ const App = () => {
         setIsAuthenticated(false);
       }
     };
-  
+
     handleAuthentication();
   }, [cookies]);
 
@@ -31,11 +31,17 @@ const App = () => {
     <div className="div-app-container">
       {loading && <Spinner />}
       <Routes>
-        <Route path="/" element={<HomePageWithProvider />} />
-        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-        <Route element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
-          <Route path="/home" element={<HomePageWithProvider />} />
-        </Route>
+        {isAuthenticated ?
+          (
+            <Routes>
+              <Route path="/home" element={<HomePageWithProvider />} />
+            </Routes>
+          ) : (
+            <Routes>
+              <Route path="/" element={<HomePageWithProvider />} />
+              <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+            </Routes>
+          )}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

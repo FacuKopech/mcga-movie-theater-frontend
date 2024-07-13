@@ -23,7 +23,7 @@ const App = () => {
           },
           credentials: 'include',
         });
-        if (response.ok) {
+        if (response.status == 200) {
           setIsAuthenticated(true);
         } else {
           setIsAuthenticated(false);

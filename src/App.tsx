@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
-    return document.cookie.split(';').some((cookie) => cookie.trim().startsWith('token'));
+    return document.cookie.split(';').some((cookie) => cookie.trim().startsWith('token='));
   });
   const { loading } = useLoading();
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const App = () => {
     const checkAuth = async () => {
       try {
         const cookies = document.cookie.split(';').map(cookie => cookie.trim());
-        const tokenCookie = cookies.find(cookie => cookie.startsWith('token'));
+        const tokenCookie = cookies.find(cookie => cookie.startsWith('token='));
         console.log('COOKIES', tokenCookie);
         const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/check-auth`, {
           method: 'GET',

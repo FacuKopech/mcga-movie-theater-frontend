@@ -18,9 +18,6 @@ const App = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const cookies = document.cookie.split(';').map(cookie => cookie.trim());
-        const tokenCookie = cookies.find(cookie => cookie.startsWith('token='));
-        console.log('COOKIES', tokenCookie);
         const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/check-auth`, {
           method: 'GET',
           headers: {
@@ -31,7 +28,6 @@ const App = () => {
 
         if (response.ok) {
           setIsAuthenticated(true);
-          navigate("/home");
         } else {
           setIsAuthenticated(false);
         }

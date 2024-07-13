@@ -18,7 +18,7 @@ const App = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        console.log('COOKIES', document.cookie.split(';').some((cookie) => cookie.trim().startsWith('token')));      
+        console.log('COOKIES', document.cookie.split(';').some((cookie) => cookie.trim().startsWith('token=')));      
         const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/check-auth`, {
           method: 'GET',
           headers: {

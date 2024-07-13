@@ -43,20 +43,19 @@ const App = () => {
   return (
     <div className="div-app-container">
       {loading && <Spinner />}
-      <Routes>
-        {isAuthenticated ?
-          (
-            <Routes>
-              <Route path="/home" element={<HomePageWithProvider />} />
-            </Routes>
-          ) : (
-            <Routes>
-              <Route path="/" element={<HomePageWithProvider />} />
-              <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-            </Routes>
-          )}
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
+      {isAuthenticated ?
+        (
+          <Routes>
+            <Route path="/home" element={<HomePageWithProvider />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path="/" element={<HomePageWithProvider />} />
+            <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        )}
     </div>
   );
 };

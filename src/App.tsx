@@ -27,7 +27,9 @@ const App = () => {
         });
 
         if (response.ok) {
+          const data = await response.json();
           setIsAuthenticated(true);
+          navigate("/home", { state: { name: data.name } });
         } else {
           setIsAuthenticated(false);
         }

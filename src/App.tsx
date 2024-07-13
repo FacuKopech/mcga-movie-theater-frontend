@@ -12,11 +12,15 @@ const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { loading } = useLoading();
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     const checkAuth = async () => {
       try {
         const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/check-auth`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
           credentials: 'include',
         });
         if (response.ok) {

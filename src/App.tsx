@@ -9,7 +9,9 @@ import PrivateRoute from "./components/PrivateRoute";
 import { useEffect, useState } from "react";
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    return document.cookie.split(';').some((cookie) => cookie.trim().startsWith('token='));
+  });
   const { loading } = useLoading();
   const navigate = useNavigate();
 
@@ -23,9 +25,9 @@ const App = () => {
           },
           credentials: 'include',
         });
+
         if (response.ok) {
           setIsAuthenticated(true);
-          console.log('IS AUTHENTICATED', true)
         } else {
           setIsAuthenticated(false);
           navigate("/login");
@@ -36,8 +38,10 @@ const App = () => {
         navigate("/login");
       }
     };
+
     checkAuth();
   }, [navigate]);
+
 
   return (
     <div className="div-app-container">

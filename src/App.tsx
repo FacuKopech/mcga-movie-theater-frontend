@@ -7,12 +7,16 @@ import HomePageWithProvider from "./pages/homePageWithProvider";
 import ErrorPage from "./pages/404ErrorPage";
 import PrivateRoute from "./components/PrivateRoute";
 import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
     return document.cookie.split(';').some((cookie) => cookie.trim().startsWith('token'));
   });
   const { loading } = useLoading();
+  const [cookies] = useCookies(['token']);
+  console.log('COOKIES', cookies);
+  console.log('TOKEN', cookies.token);
   const navigate = useNavigate();
 
   useEffect(() => {

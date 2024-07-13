@@ -9,7 +9,9 @@ import PrivateRoute from "./components/PrivateRoute";
 import { useEffect, useState } from "react";
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    return document.cookie.split(';').some((cookie) => cookie.trim().startsWith('token'));
+  });
   const { loading } = useLoading();
   const navigate = useNavigate();
 
@@ -27,23 +29,21 @@ const App = () => {
         if (response.ok) {
           setIsAuthenticated(true);
         } else {
-          setIsAuthenticated(false);      
+          setIsAuthenticated(false);
         }
       } catch (error) {
         console.error("Error checking authentication:", error);
-        setIsAuthenticated(false);        
+        setIsAuthenticated(false);
       }
     };
 
     checkAuth();
   }, [navigate]);
 
-  if (loading) {
-    return <Spinner />;
-  }
 
   return (
     <div className="div-app-container">
+      {loading && <Spinner />}
       <Routes>
         <Route path="/" element={<HomePageWithProvider />} />
         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
@@ -55,6 +55,7 @@ const App = () => {
     </div>
   );
 };
+
 
 const AppWrapper = () => {
   const location = useLocation();
@@ -73,6 +74,7 @@ const Root = () => (
       <AppWrapper />
     </Router>
   </LoadingProvider>
+
 );
 
 export default Root;

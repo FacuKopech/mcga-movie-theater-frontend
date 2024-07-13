@@ -28,6 +28,7 @@ const App = () => {
 
         if (response.ok) {
           setIsAuthenticated(true);
+          navigate("/home");
         } else {
           setIsAuthenticated(false);
         }

@@ -1,6 +1,7 @@
 #form {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   width: 300px;
   height: 472px;
   padding: 25px;
@@ -11,19 +12,9 @@
 }
 
 #form-body {
-  position: absolute;
-  top: 50%;
-  right: 25px;
-  left: 25px;
+  display: flex;
+  flex-direction: column;
   width: 230px;
-  margin: -156px auto 0 auto;
-}
-
-.div_popcorn_icon {
-  width: fit-content;
-  height: fit-content;
-  position: absolute;
-  top: 304px;
 }
 
 .div_popcorn_icon svg {
@@ -67,10 +58,6 @@
   font-size: small;
   font-weight: bold;
   font-family: "Coustard", serif;
-}
-
-.input-area {
-  margin-top: 40px;
 }
 
 .input-area-modified {

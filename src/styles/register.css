@@ -17,13 +17,6 @@
     height: 50%;
   }
 
-  .div_popcorn_icon{
-    width: fit-content;
-    height: fit-content;
-    position: absolute;
-    top: 304px;
-  }
-
   .div_popcorn_icon svg{
     fill: white;
     width: 70px;
